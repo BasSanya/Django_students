@@ -33,13 +33,13 @@
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Студенти</a>
+                    <a href="{% url "home" %}" class="nav-link active">Студенти</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Відвідування</a>
+                    <a href="/journal" class="nav-link">Відвідування</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Групи</a>
+                    <a href="/groups" class="nav-link">Групи</a>
                 </li>
             </ul>
         </div>
@@ -52,7 +52,7 @@
         <div class="col-sm-12" id="content-column">
             <div class="alert alert-warning" role="alert">Зміни скасовано.</div>
             <h2 class="my-3">База студентів</h2>
-            <a href="#" class="btn btn-primary mb-3" role="button">Додати Студента</a>
+            <a href="{% url "students_add" %}" class="btn btn-primary mb-3" role="button">Додати Студента</a>
             <!-- Start Students Listing-->
             <table class="table table-hover table-striped ">
                 <tread>
@@ -69,18 +69,18 @@
                 <tr>
                     <td>1</td>
                     <td><img height="35" width="35" src="./img/Dmytro.jpeg" alt="" class="rounded-circle"></td>
-                    <td>Літвінов</td>
-                    <td>Дмитро</td>
+                    <td><a href="{% url "students_edit" 1 %}">Літвінов</a></td>
+                    <td><a href="{% url "students_edit" 1 %}">Дмитро</a></td>
                     <td>410</td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                                 Дія
                             </button>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Редагування</a>
-                                <a href="#" class="dropdown-item">Відвідування</a>
-                                <a href="#" class="dropdown-item">Видалити</a>
+                                <a href="{% url "students_edit" 1 %}" class="dropdown-item">Редагувати</a>
+                                <a href="/journal/1" class="dropdown-item">Відвідування</a>
+                                <a href="{% url "students_delete" 1 %}" class="dropdown-item">Видалити</a>
                             </div>
                         </div>
                     </td>
@@ -88,18 +88,18 @@
                 <tr>
                     <td>2</td>
                     <td><img height="35" width="35" src="./img/Vitaliy.png" alt="" class="rounded-circle"></td>
-                    <td>Подоба</td>
-                    <td>Віталій</td>
+                    <td><a href="{% url "students_edit" 2 %}">Подоба</a></td>
+                    <td><a href="{% url "students_edit" 2 %}">Віталій</a></td>
                     <td>440</td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                                 Дія
                             </button>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Редагування</a>
-                                <a href="#" class="dropdown-item">Відвідування</a>
-                                <a href="#" class="dropdown-item">Видалити</a>
+                                <a href="{% url "students_edit" 2 %}" class="dropdown-item">Редагування</a>
+                                <a href="/journal/2" class="dropdown-item">Відвідування</a>
+                                <a href="{% url "students_delete" 2 %}" class="dropdown-item">Видалити</a>
                             </div>
                         </div>
                     </td>
@@ -107,18 +107,18 @@
                 <tr>
                     <td>1</td>
                     <td><img height="35" width="35" src="./img/Andrew.jpg" alt="" class="rounded-circle"></td>
-                    <td>Корост</td>
-                    <td>Андрій</td>
+                    <td><a href="{% url "students_edit" 3 %}">Корост</a></td>
+                    <td><a href="{% url "students_edit" 3 %}">Андрій</a></td>
                     <td>152</td>
                     <td>
                         <div class="dropdown">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                                 Дія
                             </button>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">Редагування</a>
-                                <a href="#" class="dropdown-item">Відвідування</a>
-                                <a href="#" class="dropdown-item">Видалити</a>
+                                <a href="{% url "students_edit" 3 %}" class="dropdown-item">Редагування</a>
+                                <a href="/journal/3" class="dropdown-item">Відвідування</a>
+                                <a href="{% url "students_delete" 3 %}" class="dropdown-item">Видалити</a>
                             </div>
                         </div>
                     </td>
