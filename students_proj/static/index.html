@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервіс обліку студентів</title>
+    <meta name="description"
+          content="Система обліку Студентів навчального закладу">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<!--Start Container-->
+<div class="container">
+    <!--    Start Header-->
+    <div class="row mt-3" id="header">
+        <div class="col-sm-8">
+            <h1>Сервіс обліку студентів</h1>
+        </div>
+        <div class="col-sm-4 d-flex align-items-center" id="group-selector">
+            <label for="group"><strong>Група:</strong></label>
+            <select name="group" id="group" class="custom-select">
+                <option value="">Усі студенти</option>
+                <option value="">МтМ - 21, Дмитро Літвінов</option>
+                <option value="">МтМ - 22, Віталій Подобов</option>
+            </select>
+        </div>
+    </div>
+    <!--    End Header-->
+
+    <!--    Start SubHeader-->
+    <div class="row" id="sub-header">
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">Студенти</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Відвідування</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Групи</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--    End SubHeader-->
+
+
+    <!--    Start Main Page Content-->
+    <div class="row" id="content-columns">
+        <div class="col-sm-12" id="content-column">
+            <div class="alert alert-warning" role="alert">Зміни скасовано.</div>
+            <h2 class="my-3">База студентів</h2>
+            <a href="#" class="btn btn-primary mb-3" role="button">Додати Студента</a>
+            <!-- Start Students Listing-->
+            <table class="table table-hover table-striped ">
+                <tread>
+                    <tr>
+                        <th>№</th>
+                        <th>Фото</th>
+                        <th>Прізвище &uarr;</th>
+                        <th>Ім'я</th>
+                        <th>№ Білету</th>
+                        <th>Дії</th>
+                    </tr>
+                </tread>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img height="35" width="35" src="./img/Dmytro.jpeg" alt="" class="rounded-circle"></td>
+                    <td>Літвінов</td>
+                    <td>Дмитро</td>
+                    <td>410</td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Дія
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Редагування</a>
+                                <a href="#" class="dropdown-item">Відвідування</a>
+                                <a href="#" class="dropdown-item">Видалити</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img height="35" width="35" src="./img/Vitaliy.png" alt="" class="rounded-circle"></td>
+                    <td>Подоба</td>
+                    <td>Віталій</td>
+                    <td>440</td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Дія
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Редагування</a>
+                                <a href="#" class="dropdown-item">Відвідування</a>
+                                <a href="#" class="dropdown-item">Видалити</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img height="35" width="35" src="./img/Andrew.jpg" alt="" class="rounded-circle"></td>
+                    <td>Корост</td>
+                    <td>Андрій</td>
+                    <td>152</td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Дія
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Редагування</a>
+                                <a href="#" class="dropdown-item">Відвідування</a>
+                                <a href="#" class="dropdown-item">Видалити</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- End Students Listing-->
+
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--    End Main Page Content-->
+
+    <!--    Start Footer-->
+    <div class="row" id="footer">
+        <div class="col-sm-12">
+            &copy; 2021 Сервіс Обліку Студентів
+        </div>
+    </div>
+    <!--    End Footer-->
+
+</div>
+<!--End Container-->
+<script
+        src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

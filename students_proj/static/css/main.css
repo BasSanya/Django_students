@@ -1,0 +1,23 @@
+/* Global style */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+.alert {
+    margin: 10px 0 5px 0;
+}
+/* Group Selector */
+#group-selector {
+    margin-top: 10px;
+}
+#group-selector label {
+    line-height: calc(1.5em + .75rem + 2px);
+}
+/* Table Selector */
+.table td {
+    vertical-align: middle;
+}
+/* Footer Selector */
+#footer {
+    border-top: 1px solid #dee2e6;
+    paging-top: 10px;
+}
