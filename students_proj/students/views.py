@@ -3,7 +3,30 @@ from django.shortcuts import render
 
 
 def students_list(request):
-    return render(request, 'students/students_list.html', {})
+    students = (
+        {
+            'id': '1',
+            'first_name': 'Дмитро',
+            'last_name': 'Літвінов',
+            'ticket': '235',
+            'image': 'img/Dmytro.jpeg'
+        },
+        {
+            'id': '2',
+            'first_name': 'Віталій',
+            'last_name': 'Подоба',
+            'ticket': '440',
+            'image': 'img/Vitaliy.png'
+        },
+        {
+            'id': '1',
+            'first_name': 'Андрій',
+            'last_name': 'Корост',
+            'ticket': '711',
+            'image': 'img/Andrew.jpg'
+        }
+    )
+    return render(request, 'students/students_list.html', {"students": students})
 
 
 def students_add(request):
