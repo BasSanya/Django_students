@@ -14,30 +14,26 @@
         <tread>
             <tr>
                 <th>№</th>
-                <th>Фото</th>
-                <th>Прізвище &uarr;</th>
-                <th>Ім'я</th>
-                <th>№ Білету</th>
+                <th>Назва &uarr;</th>
+                <th>Староста</th>
                 <th>Дії</th>
             </tr>
         </tread>
         <tbody>
-        {% for student in students %}
+        {% for group in groups %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><img height="35" width="35" src="{% static student.image %}" alt="" class="rounded-circle"></td>
-            <td><a href="{% url 'students_edit' student.id %}">{{ student.last_name }}</a></td>
-            <td><a href="{% url 'students_edit' student.id %}">{{ student.first_name }}</a></td>
-            <td>{{ student.ticket }}</td>
+            <td><a href="{% url 'groups_edit' group.id %}">{{ group.name }}</a></td>
+            <td><a href="{% url 'groups_edit' group.id %}">{{ group.leader }}</a></td>
             <td>
                 <div class="dropdown">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
                         Дія
                     </button>
                     <div class="dropdown-menu">
-                        <a href="{% url 'students_edit' student.id %}" class="dropdown-item">Редагувати</a>
-                        <a href="/journal/{{ student.id }}" class="dropdown-item">Відвідування</a>
-                        <a href="{% url 'students_delete' student.id %}" class="dropdown-item">Видалити</a>
+                        <a href="{% url 'groups_edit' group.id %}" class="dropdown-item">Редагувати</a>
+                        <a href="/journal/{{ group.id }}" class="dropdown-item">Відвідування</a>
+                        <a href="{% url 'groups_delete' group.id %}" class="dropdown-item">Видалити</a>
                     </div>
                 </div>
             </td>
