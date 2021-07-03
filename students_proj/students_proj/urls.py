@@ -1,20 +1,23 @@
 from django.contrib import admin
 from django.urls import path
 
-from students import views as stud_views
+from students.views import students, groups, journal
 
 urlpatterns = [
     # Students urls
-    path('', stud_views.students_list, name="home"),
-    path('students/add/', stud_views.students_add, name="students_add"),
-    path('student/<int:sid>/edit/', stud_views.students_edit, name="students_edit"),
-    path('student/<int:sid>/delete/', stud_views.students_delete, name="students_delete"),
+    path('', students.students_list, name="home"),
+    path('students/add/', students.students_add, name="students_add"),
+    path('student/<int:sid>/edit/', students.students_edit, name="students_edit"),
+    path('student/<int:sid>/delete/', students.students_delete, name="students_delete"),
 
     # Groups urls
-    path('groups/', stud_views.groups_list, name="groups"),
-    path('groups/add/', stud_views.groups_add, name="groups_add"),
-    path('group/<int:sid>/edit/', stud_views.groups_edit, name="groups_edit"),
-    path('group/<int:sid>/delete/', stud_views.groups_delete, name="groups_delete"),
+    path('groups/', groups.groups_list, name="groups"),
+    path('groups/add/', groups.groups_add, name="groups_add"),
+    path('group/<int:sid>/edit/', groups.groups_edit, name="groups_edit"),
+    path('group/<int:sid>/delete/', groups.groups_delete, name="groups_delete"),
+
+    # Journal url
+    path('journal/', journal.journal, name="journal"),
 
     path('admin/', admin.site.urls),
 ]
