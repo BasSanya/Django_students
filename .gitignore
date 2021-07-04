@@ -131,3 +131,6 @@ dmypy.json
 /.idea
 /venv/
 /students_proj/media/
+/students_proj/db_back_up.sqlite3
+/students_proj/demo_data.json
+/students_proj/students_proj/db.py
