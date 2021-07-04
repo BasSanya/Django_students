@@ -12,6 +12,7 @@ urlpatterns = [
     path('student/<int:sid>/edit/', students.students_edit, name="students_edit"),
     path('student/<int:sid>/delete/', students.students_delete, name="students_delete"),
 
+
     # Groups urls
     path('groups/', groups.groups_list, name="groups"),
     path('groups/add/', groups.groups_add, name="groups_add"),

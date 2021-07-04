@@ -16,8 +16,13 @@ h1, h2, h3, h4, h5, h6 {
 .table td {
     vertical-align: middle;
 }
+/* Form Style */
+textarea, select, input {
+    max-width: 300px;
+}
 /* Footer Selector */
 #footer {
+    margin-top: 30px;
     border-top: 1px solid #dee2e6;
     paging-top: 10px;
 }

@@ -1,0 +1,98 @@
+{% extends "students/base.html" %}
+{% load static %}
+
+{% block status_message %}
+{% if errors %}
+<div class="alert alert-warning" role="alert">Будь ласка, виправте наступні помилки</div>
+{% endif %}
+{% endblock status_message %}
+
+{% block meta_title %}Додати Студента{% endblock meta_title %}
+
+{% block title %}Додати Студента{% endblock title %}
+
+{% block content %}
+
+<form action="{% url 'students_add' %}" method="post" enctype="multipart/form-data" role="form">
+    {% csrf_token %}
+    <input type="hidden" value="27" name="student_id">
+    <div class="form-group row {% if errors.first_name %}has-error{% endif %}">
+        <label for="first_name" class="col-sm-2 col-form-label">Ваше ім'я*</label>
+        <div class="col-sm-10">
+            <input type="text" value="{{ request.POST.first_name }}" name="first_name" id="first_name"
+                   class="form-control {% if errors.first_name %} is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.first_name }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.last_name %}has-error{% endif %}">
+        <lable for="last_name" class="col-sm-2 col-form-label">Прізвище*</lable>
+        <div class="col-sm-10">
+            <input type="text" value="{{ request.POST.last_name }}" name="last_name" id="last_name"
+                   placeholder="Введіть ваше прізвище"
+                   class="form-control {% if errors.last_name %}is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.last_name }}</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="middle_name" class="col-sm-2 col-form-label">По-батькові</lable>
+        <div class="col-sm-10">
+            <input type="text" value="{{ request.POST.middle_name }}" name="middle_name" id="middle_name"
+                   class="form-control {% if errors.middle_name %}is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.middle_name }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.birthday %}has-error{% endif %}">
+        <lable for="birthday" class="col-sm-2 col-form-label">Дата народження*</lable>
+        <div class="col-sm-10">
+            <input type="text" value="{{ request.POST.birthday }}" name="birthday" id="birthday"
+                   placeholder="Наприклад 1984-12-30"
+                   class="form-control {% if errors.birthday %}is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.birthday }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.photo %}has-error{% endif %}">
+        <lable for="photo" class="col-sm-2 col-form-label">Фото</lable>
+        <div class="col-sm-10">
+            <input type="file" value="" name="photo" id="photo"
+                   class="form-control-file {% if errors.photo %}is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.photo }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.photo %}has-error{% endif %}">
+        <lable for="ticket" class="col-sm-2 col-form-label">Білет*</lable>
+        <div class="col-sm-10">
+            <input type="text" value="{{ request.POST.ticket }}" name="ticket" id="ticket"
+                   class="form-control {% if errors.ticket %}is-invalid{% endif %}"/>
+            <div class="invalid-feedback">{{ errors.ticket }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.photo %}has-error{% endif %}">
+        <lable for="student_group" class="col-sm-2 col-form-label">Група*</lable>
+        <div class="col-sm-10">
+            <select name="student_group" id="student_group"
+                    class="custom-select {% if errors.student_group %}is-invalid{% endif %}">
+                <option value="{{ request.POST.student_group }}">Виберіть групу</option>
+                {% for group in groups %}
+                <option value="{{ group.id }}">{{ group.title }}</option>
+                {% endfor %}
+            </select>
+            <div class="invalid-feedback">{{ errors.student_group }}</div>
+        </div>
+    </div>
+    <div class="form-group row {% if errors.photo %}has-error{% endif %}">
+        <lable for="notes" class="col-sm-2 col-form-label">Додаткові нотатки</lable>
+        <div class="col-sm-10">
+            <textarea name="notes" id="notes" class="form-contro;">{{ request.POST.notes }}</textarea>
+            <div class="invalid-feedback">{{ errors.notes }}</div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2"></label>
+        <div class="col-sm-10">
+            <input type="submit" name="add_button" value="Додати" class="btn btn-primary"/>
+            <button type="submit" name="cancel_button" class="btn btn-link">Скасувати</button>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}
