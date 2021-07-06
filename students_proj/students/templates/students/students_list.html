@@ -49,8 +49,8 @@
                 {% else %}
                 <img height="35" width="35" src="{% static 'img/anon.png' %}" alt="" class="rounded-circle"></td>
                 {% endif %}
-            <td><a href="{% url 'students_edit' student.id %}">{{ student.last_name }}</a></td>
-            <td><a href="{% url 'students_edit' student.id %}">{{ student.first_name }}</a></td>
+            <td><a href="{% url 'students_update' student.id %}">{{ student.last_name }}</a></td>
+            <td><a href="{% url 'students_update' student.id %}">{{ student.first_name }}</a></td>
             <td>{{ student.ticket }}</td>
             <td>
                 <div class="dropdown">
@@ -58,7 +58,7 @@
                         Дія
                     </button>
                     <div class="dropdown-menu">
-                        <a href="{% url 'students_edit' student.id %}" class="dropdown-item">Редагувати</a>
+                        <a href="{% url 'students_update' student.id %}" class="dropdown-item">Редагувати</a>
                         <a href="/journal/{{ student.id }}" class="dropdown-item">Відвідування</a>
                         <a href="{% url 'students_delete' student.id %}" class="dropdown-item">Видалити</a>
                     </div>

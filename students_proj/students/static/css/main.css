@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle;
 }
 /* Form Style */
-textarea, select, input {
+textarea, select, input, .custom-file, .input-group {
     max-width: 300px;
 }
 /* Footer Selector */
