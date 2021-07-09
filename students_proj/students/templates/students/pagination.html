@@ -1,0 +1,29 @@
+{% if is_paginated %}
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item">
+            <a href="?page{% if order_by %}&order_by={{ order_by }}{% endif %}{% if reverse %}&reverse= \
+                {{ reverse }}{% endif %}{%if cur_month %}&month={{ cur_month }}{% endif%}"
+               class="page-link" aria-label="Previous">
+                &laquo;
+            </a>
+        </li>
+        {% for p in paginator.page_range %}
+        <li class="page-item {% if object_list.number == p %}active{% endif %}">
+            <a href="?page={{ p }}{% if order_by %}&order_by={{ order_by }}{% endif %}{% if reverse %}&reverse={{ reverse }}{% endif %}"
+               class="page-link">
+                {{ p }}
+            </a>
+        </li>
+        {% endfor %}
+        <li class="page-item">
+            <a href="?page={{ paginator.num_pages }}{% if order_by %}&order_by={{ order_by }}{% endif %}{% if reverse %}&reverse={{ reverse }}{% endif %}"
+               class="page-link" aria-label="Next">
+                <span aria-hidden="true">&#8867;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endwith %}
+{% endif %}

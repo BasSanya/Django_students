@@ -1,9 +1,10 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
-from students.views import students, groups, journal, contact_admin, students_class, students_update, students_delete
+from students.views import students, groups, journal, contact_admin, students_class, students_update, \
+    students_delete
 
 urlpatterns = [
     # Students urls
@@ -21,7 +22,8 @@ urlpatterns = [
     path('group/<int:sid>/delete/', groups.groups_delete, name="groups_delete"),
 
     # Journal url
-    path('journal/', journal.journal, name="journal"),
+    # path('journal/', journal.JournalView.as_view(), name="journal"),
+    re_path(r'journal/(?:(?P<pk>\d+)/)?$', journal.JournalView.as_view(), name="journal"),
 
     path('contact-admin/', contact_admin.contact_admin, name="contact_admin"),
 

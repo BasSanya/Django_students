@@ -4,8 +4,8 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 
 
-from .models import Students
-from .models import Groups
+from .models import Students, Groups, MonthJournal
+
 
 
 class StudentFormAdmin(ModelForm):
@@ -30,3 +30,4 @@ class StudentAdmin(admin.ModelAdmin):
 
 admin.site.register(Students, StudentAdmin)
 admin.site.register(Groups)
+admin.site.register(MonthJournal)

@@ -26,3 +26,13 @@ textarea, select, input, .custom-file, .input-group {
     border-top: 1px solid #dee2e6;
     paging-top: 10px;
 }
+/* Journal Table Styles */
+td.day-box,
+th.day-header {
+    padding: 4px !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+#ajax-progress-indicator {
+    display: none;
+}
