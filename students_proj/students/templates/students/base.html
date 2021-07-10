@@ -9,6 +9,9 @@
           content="Система обліку Студентів навчального закладу">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css"
+          integrity="sha512-OtwMKauYE8gmoXusoKzA/wzQoh7WThXJcJVkA29fHP58hBF7osfY0WLCIZbwkeL9OgRCxtAfy17Pn3mndQ4PZQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{ PORTAL_URL }}{% static 'css/main.css' %}">
     {% block extra_css %}{% endblock extra_css %}
 </head>
@@ -24,8 +27,11 @@
             <label for="group"><strong>Група:</strong></label>
             <select name="group" id="group" class="custom-select">
                 <option value="">Усі студенти</option>
-                <option value="">МтМ - 21, Дмитро Літвінов</option>
-                <option value="">МтМ - 22, Віталій Подобов</option>
+                {% for group in GROUPS %}
+                <option value="{{ group.id}}" {% if group.selected %}selected="1" {% endif %}>
+                    {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}
+                </option>
+                {% endfor %}
             </select>
         </div>
     </div>
@@ -85,11 +91,27 @@
         </div>
     </div>
     <!--    End Footer-->
-
 </div>
 <!--End Container-->
-<script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
+
+<!--Modal Boilerplate-->
+<div class="modal fade" id="myModal" tabindex="=-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel"><!-- --></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"><!-- --></div>
+            <div class="modal-footer"><!-- --></div>
+        </div>
+    </div>
+</div>
+
+<!--JS Inclusion-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
@@ -98,6 +120,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"
+        integrity="sha512-+ruHlyki4CepPr07VklkX/KM5NXdD16K1xVwSva5VqOVbsotyCQVKEwdQ1tAeo3UkHCXfSMtKU/mZpKjYqkxZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
+        integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/js.cookie-2.2.1.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 {% block extra_js %}{% endblock extra_js %}
 </body>

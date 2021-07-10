@@ -7,92 +7,99 @@
 
 {% block content %}
 
-    <a href="{% url 'students_add' %}" class="btn btn-primary mb-3" role="button">Додати Студента</a>
+<a href="{% url 'students_add' %}" class="btn btn-primary mb-3" role="button">Додати Студента</a>
 
-    <!-- Start Students Listing-->
-    <table class="table table-hover table-striped ">
-        {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-        <tread>
-            <tr>
-                <th><a href="{% url 'home' %}?order_by=id{% if order_by == 'id' and reverse != '1' %}&amp;reverse=1{% endif %}"">
-                    №
-                    {% if order_by == 'id' and reverse != '1' %}&uarr;{% endif %}
-                    {% if order_by == 'id' and reverse == '1' %}&darr;{% endif %}
-                    </a></th>
-                <th>Фото</th>
-                <th><a href="{% url 'home' %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
+<!-- Start Students Listing-->
+<table class="table table-hover table-striped ">
+    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+    <tread>
+        <tr>
+            <th>
+                <a href="{% url 'home' %}?order_by=id{% if order_by == 'id' and reverse != '1' %}&amp;reverse=1{% endif %}"">
+                №
+                {% if order_by == 'id' and reverse != '1' %}&uarr;{% endif %}
+                {% if order_by == 'id' and reverse == '1' %}&darr;{% endif %}
+                </a></th>
+            <th>Фото</th>
+            <th>
+                <a href="{% url 'home' %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
                     Прізвище
                     {% if order_by == 'last_name' and reverse != '1' %}&uarr;{% endif %}
                     {% if order_by == 'last_name' and reverse == '1' %}&darr;{% endif %}
                 </a></th>
-                <th><a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and GET.reverse != '1' %}&amp;reverse=1{% endif %}">
+            <th>
+                <a href="{% url 'home' %}?order_by=first_name{% if order_by == 'first_name' and GET.reverse != '1' %}&amp;reverse=1{% endif %}">
                     Ім'я
                     {% if order_by == 'first_name' and reverse != '1' %}&uarr;{% endif %}
                     {% if order_by == 'first_name' and reverse == '1' %}&darr;{% endif %}
                 </a></th>
-                <th><a href="{% url 'home' %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">
+            <th>
+                <a href="{% url 'home' %}?order_by=ticket{% if order_by == 'ticket' and reverse != '1' %}&amp;reverse=1{% endif %}">
                     № Білету
                     {% if order_by == 'ticket' and reverse != '1' %}&uarr;{% endif %}
                     {% if order_by == 'ticket' and reverse == '1' %}&darr;{% endif %}
                 </a></th>
-                <th>Дії</th>
-            </tr>
-        </tread>
-        {% endwith %}
-        <tbody>
-        {% for student in students %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>
-                {% if student.photo %}
-                <img height="35" width="35" src="{{ student.photo.url }}" alt="" class="rounded-circle"></td>
-                {% else %}
-                <img height="35" width="35" src="{% static 'img/anon.png' %}" alt="" class="rounded-circle"></td>
-                {% endif %}
-            <td><a href="{% url 'students_update' student.id %}">{{ student.last_name }}</a></td>
-            <td><a href="{% url 'students_update' student.id %}">{{ student.first_name }}</a></td>
-            <td>{{ student.ticket }}</td>
-            <td>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        Дія
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="{% url 'students_update' student.id %}" class="dropdown-item">Редагувати</a>
-                        <a href="{% url 'journal' student.id %}" class="dropdown-item">Відвідування</a>
-                        <a href="{% url 'students_delete' student.id %}" class="dropdown-item">Видалити</a>
-                    </div>
-                </div>
-            </td>
+            <th>Дії</th>
         </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <!-- End Students Listing-->
-
-    {% if students.has_other_pages %}
-    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="{% url 'home' %}?page=1&order_by={{ order_by }}&reverse={{ reverse }}" aria-label="Previous">
-                    <span aria-hidden="true">&#8866;</span>
-                </a>
-            </li>
-            {% for p in students.paginator.page_range %}
-            <li class="page-item {% if students.number == p %}active{% endif %}">
-                <a href="{% url 'home' %}?page={{ p }}&order_by={{ order_by }}&reverse={{ reverse }}" class="page-link">
-                    {{ p }}
-                </a>
-            </li>
-            {% endfor %}
-            <li class="page-item">
-                <a href="{% url 'home' %}?page={{ students.paginator.num_pages }}&order_by={{ order_by }}&reverse={{ reverse }}" class="page-link" aria-label="Next">
-                    <span aria-hidden="true">&#8867;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    </tread>
     {% endwith %}
-    {% endif %}
+    <tbody>
+    {% for student in students %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+            {% if student.photo %}
+            <img height="35" width="35" src="{{ student.photo.url }}" alt="" class="rounded-circle">
+        </td>
+        {% else %}
+        <img height="35" width="35" src="{% static 'img/anon.png' %}" alt="" class="rounded-circle"></td>
+        {% endif %}
+        <td><a href="{% url 'students_update' student.id %}" class="student-edit-form-link" >{{ student.last_name }}</a></td>
+        <td><a href="{% url 'students_update' student.id %}" class="student-edit-form-link" >{{ student.first_name }}</a></td>
+        <td>{{ student.ticket }}</td>
+        <td>
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    Дія
+                </button>
+                <div class="dropdown-menu">
+                    <a href="{% url 'students_update' student.id %}" class="dropdown-item student-edit-form-link">Редагувати</a>
+                    <a href="{% url 'journal' student.id %}" class="dropdown-item">Відвідування</a>
+                    <a href="{% url 'students_delete' student.id %}" class="dropdown-item">Видалити</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<!-- End Students Listing-->
+
+{% if students.has_other_pages %}
+{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="{% url 'home' %}?page=1&order_by={{ order_by }}&reverse={{ reverse }}"
+               aria-label="Previous">
+                <span aria-hidden="true">&#8866;</span>
+            </a>
+        </li>
+        {% for p in students.paginator.page_range %}
+        <li class="page-item {% if students.number == p %}active{% endif %}">
+            <a href="{% url 'home' %}?page={{ p }}&order_by={{ order_by }}&reverse={{ reverse }}" class="page-link">
+                {{ p }}
+            </a>
+        </li>
+        {% endfor %}
+        <li class="page-item">
+            <a href="{% url 'home' %}?page={{ students.paginator.num_pages }}&order_by={{ order_by }}&reverse={{ reverse }}"
+               class="page-link" aria-label="Next">
+                <span aria-hidden="true">&#8867;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endwith %}
+{% endif %}
 {% endblock content %}

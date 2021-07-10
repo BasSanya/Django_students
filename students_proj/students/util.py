@@ -28,3 +28,33 @@ def paginate(objects, size, request, context, var_name="object_list"):
     context['paginator'] = paginator
 
     return context
+
+
+def get_groups(request):
+    from .models import Groups
+
+    cur_group = get_current_group(request)
+
+    groups = []
+    for group in Groups.objects.all().order_by('title'):
+        groups.append({
+            'id': group.id,
+            'title': group.title,
+            'leader': group.leader and f'{group.leader.first_name} {group.leader.last_name}' or None,
+            'selected': cur_group and cur_group.id == group.id or False
+        })
+    return groups
+
+def get_current_group(request):
+    pk = request.COOKIES.get('current_group')
+
+    if pk:
+        from .models import Groups
+        try:
+            group = Groups.objects.get(pk=int(pk))
+        except Groups.DoesNotExist:
+            return None
+        else:
+            return group
+    else:
+        return None

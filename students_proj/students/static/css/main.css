@@ -2,30 +2,37 @@
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
+
 .alert {
     margin: 10px 0 5px 0;
 }
+
 /* Group Selector */
 #group-selector {
     margin-top: 10px;
 }
+
 #group-selector label {
     line-height: calc(1.5em + .75rem + 2px);
 }
+
 /* Table Selector */
 .table td {
     vertical-align: middle;
 }
+
 /* Form Style */
 textarea, select, input, .custom-file, .input-group {
     max-width: 300px;
 }
+
 /* Footer Selector */
 #footer {
     margin-top: 30px;
     border-top: 1px solid #dee2e6;
     paging-top: 10px;
 }
+
 /* Journal Table Styles */
 td.day-box,
 th.day-header {
@@ -33,6 +40,19 @@ th.day-header {
     vertical-align: middle !important;
     text-align: center !important;
 }
+
 #ajax-progress-indicator {
     display: none;
+}
+
+/*Modal Style*/
+.modal-dialog {
+    max-width: 600px;
+}
+
+.modal-dialog textarea,
+.modal-dialog select,
+.modal-dialog input,
+.modal-dialog .custom-file {
+    max-width: initial;
 }
