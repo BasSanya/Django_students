@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+import logging
 
 
 class ContactForm(forms.Form):
@@ -54,6 +55,8 @@ def contact_admin(request):
             except Exception:
                 message = 'Під час відправки листа виникла непредбачувана помилка. ' \
                           'Спробуйте скористатись даною формою пізніше'
+                log = logging.getLogger(__name__)
+                log.exception(message)
             else:
                 message = 'Повідомлення успішно надіслане!'
             return HttpResponseRedirect(f"{reverse('contact_admin')}?status_message={message}")
