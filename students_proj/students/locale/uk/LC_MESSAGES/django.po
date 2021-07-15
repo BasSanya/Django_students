@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-15 08:56+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: .\students\apps.py:8
+msgid "Students base"
+msgstr "База студентів"
+
+#: .\students\models\students.py:10
+#: .\students\templates\students\students_list.html:33
+msgid "First Name"
+msgstr "Ім'я"
+
+#: .\students\models\students.py:15
+msgid "Second Name"
+msgstr "Прізвище"
+
+#: .\students\models\students.py:19
+msgid "Surname"
+msgstr "По-батькові"
+
+#: .\students\models\students.py:23
+msgid "Birthday date"
+msgstr "Дата народження"
+
+#: .\students\models\students.py:27
+#: .\students\templates\students\students_list.html:24
+msgid "Photo"
+msgstr "Фото"
+
+#: .\students\models\students.py:32
+#, fuzzy
+#| msgid "Ticket #"
+msgid "Ticket"
+msgstr "№ Білету"
+
+#: .\students\models\students.py:35
+msgid "Additional notes"
+msgstr "Додаткові нотатки"
+
+#: .\students\models\students.py:38
+#, fuzzy
+#| msgid "Groups"
+msgid "Group"
+msgstr "Групи"
+
+#: .\students\models\students.py:49
+#, fuzzy
+#| msgid "Students"
+msgid "Student"
+msgstr "Студенти"
+
+#: .\students\models\students.py:50 .\students\templates\students\base.html:47
+msgid "Students"
+msgstr "Студенти"
+
+#: .\students\templates\students\base.html:8
+#: .\students\templates\students\base.html:25
+#: .\students\templates\students\base.html:91
+msgid "Students Accounting Service"
+msgstr "Сервіс Обліку Студентів"
+
+#: .\students\templates\students\base.html:10
+msgid "App to manage students database"
+msgstr "Система Обліку Студентів Навчального Закладу"
+
+#: .\students\templates\students\base.html:28
+#: .\students\templates\students\base.html:57
+msgid "Groups"
+msgstr "Групи"
+
+#: .\students\templates\students\base.html:30
+msgid "All students"
+msgstr "Усі студенти"
+
+#: .\students\templates\students\base.html:52
+#: .\students\templates\students\students_list.html:68
+msgid "Journal"
+msgstr "Відвідування"
+
+#: .\students\templates\students\base.html:63
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\students\templates\students\students_confirm_delete.html:5
+#: .\students\templates\students\students_confirm_delete.html:7
+msgid "Delete Student"
+msgstr "Видалити студента"
+
+#: .\students\templates\students\students_confirm_delete.html:12
+#, python-format
+msgid "Do you really want to delete student: \"%(object)s\"?"
+msgstr "Ти справді хочеш видалити студента: \"%(object)s\"?"
+
+#: .\students\templates\students\students_confirm_delete.html:13
+msgid "Yes"
+msgstr "Так"
+
+#: .\students\templates\students\students_list.html:11
+msgid "Add Student"
+msgstr "Додати студента"
+
+#: .\students\templates\students\students_list.html:27
+msgid "Last Name"
+msgstr "Прізвище"
+
+#: .\students\templates\students\students_list.html:39
+msgid "Ticket #"
+msgstr "№ Білету"
+
+#: .\students\templates\students\students_list.html:43
+#: .\students\templates\students\students_list.html:64
+msgid "Actions"
+msgstr "Дії"
+
+#: .\students\templates\students\students_list.html:67
+msgid "Edit"
+msgstr "Редагувати"
+
+#: .\students\templates\students\students_list.html:69
+msgid "Delete"
+msgstr "Видалити"
+
+#: .\students\views\students.py:42
+msgid "First name field is required"
+msgstr "Поле ім'я є обов'язкове"
+
+#: .\students\views\students.py:48
+msgid "Second name field if required"
+msgstr "Поле прізвище є обов'язкове"
+
+#: .\students\views\students.py:54
+msgid "Birthday field is required"
+msgstr "Дата народження обов'язкова для заповнення"
+
+#: .\students\views\students.py:59
+msgid "It's a wrong format of date, enter correct! (For example 1984-12-30)"
+msgstr ""
+"Введена дата в не корректному форматі, виправте дату! (Приклад 1984-12-30)"
+
+#: .\students\views\students.py:65
+msgid "Ticket number is required"
+msgstr "Номер білету обов'язковий для заповнення"
+
+#: .\students\views\students.py:71
+msgid "Choose group for student"
+msgstr "Оберіть групу для студента"

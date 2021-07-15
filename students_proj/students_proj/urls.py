@@ -8,7 +8,7 @@ from students.views import students, groups, journal, contact_admin, students_cl
     students_delete
 
 urlpatterns = [
-                  path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
+                  path('jsi18n/', JavaScriptCatalog.as_view(packages=['students']), name='javascript-catalog'),
                   # Students urls
                   path('', students.students_list, name="home"),
                   path('students_list/', students_class.StudentList.as_view()),
