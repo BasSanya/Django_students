@@ -1,12 +1,13 @@
+{% load i18n %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Сервіс обліку студентів - {% block meta_title %}{% endblock meta_title %}</title>
+    <title>{% trans "Students Accounting Service" %} - {% block meta_title %}{% endblock meta_title %}</title>
     <meta name="description"
-          content="Система обліку Студентів навчального закладу">
+          content="{% trans 'App to manage students database' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css"
@@ -21,12 +22,12 @@
     <!--    Start Header-->
     <div class="row mt-3" id="header">
         <div class="col-sm-8">
-            <h1>Сервіс обліку студентів</h1>
+            <h1>{% trans "Students Accounting Service" %}</h1>
         </div>
         <div class="col-sm-4 d-flex align-items-center" id="group-selector">
-            <label for="group"><strong>Група:</strong></label>
+            <label for="group"><strong>{% trans 'Groups' %}:</strong></label>
             <select name="group" id="group" class="custom-select">
-                <option value="">Усі студенти</option>
+                <option value="">{% trans 'All students' %}</option>
                 {% for group in GROUPS %}
                 <option value="{{ group.id}}" {% if group.selected %}selected="1" {% endif %}>
                     {{ group.title }}{% if group.leader %}, {{ group.leader }}{% endif %}
@@ -43,23 +44,23 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">
-                        Студенти
+                        {% trans 'Students' %}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/journal" class="nav-link {% if '/journal' in request.path %}active{% endif %}">
-                        Відвідування
+                        {% trans 'Journal' %}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'groups' %}" class="nav-link {% if '/groups' in request.path %}active{% endif %}">
-                        Групи
+                        {% trans 'Groups' %}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'contact_admin' %}"
                        class="nav-link {% if '/contact-admin' in request.path %}active{% endif %}">
-                        Контакти
+                        {% trans 'Contact' %}
                     </a>
                 </li>
             </ul>
@@ -87,7 +88,7 @@
     <!--    Start Footer-->
     <div class="row" id="footer">
         <div class="col-sm-12">
-            &copy; 2021 Сервіс Обліку Студентів
+            &copy; 2021 {% trans 'Students Accounting Service' %}
         </div>
     </div>
     <!--    End Footer-->
@@ -126,6 +127,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"
         integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn"
         crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
 <script src="{% static 'js/js.cookie-2.2.1.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 {% block extra_js %}{% endblock extra_js %}
