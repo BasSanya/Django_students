@@ -37,8 +37,9 @@
                 {% endfor %}
             </select>
         </div>
+        <!-- User's toolbar-->
         <div class="col-sm-2 text-end my-auto" id="user-toolbar">
-            <span>{{ user.username }}</span> |
+            <a href="{% url 'profile' %}">{{ user.get_full_name|default:user.username }}</a> |
             <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
         </div>
         {% else %}

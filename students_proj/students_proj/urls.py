@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path, include
 from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 from django.views.i18n import JavaScriptCatalog
 
 from students.views import students, groups, journal, contact_admin, students_class, students_update, \
@@ -30,6 +31,8 @@ urlpatterns = [
                   path('contact-admin/', contact_admin.contact_admin, name="contact_admin"),
 
                   #  Login
+                  path('accounts/profile', login_required(TemplateView.as_view(template_name='account/profile.html')),
+                       name="profile"),
                   path('accounts/', include('allauth.urls')),
                   path('admin/', admin.site.urls),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
