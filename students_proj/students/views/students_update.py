@@ -4,6 +4,9 @@ from crispy_forms.bootstrap import FormActions
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 from django.forms import ModelForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -42,6 +45,10 @@ class StudentUpdateView(UpdateView):
     model = Students
     template_name = 'students/students_update.html'
     form_class = StudentUpdateForm
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_success_url(self):
         return f'{reverse("home")}?status_message=Студента успішно збережено!'

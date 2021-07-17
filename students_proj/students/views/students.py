@@ -4,6 +4,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext as _
 
 from ..models import Students, Groups
@@ -28,6 +30,7 @@ def students_list(request):
     return render(request, 'students/students_list.html', context)
 
 
+@login_required
 def students_add(request):
     if request.method == 'POST':
         if request.POST.get('add_button') is not None:

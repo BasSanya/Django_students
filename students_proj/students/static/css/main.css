@@ -30,7 +30,7 @@ textarea, select, input, .custom-file, .input-group {
 #footer {
     margin-top: 30px;
     border-top: 1px solid #dee2e6;
-    paging-top: 10px;
+    padding-top: 10px;
 }
 
 /* Journal Table Styles */
