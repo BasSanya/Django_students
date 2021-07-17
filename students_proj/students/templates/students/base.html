@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+{% load socialaccount %}
 
 <!DOCTYPE html>
 <html lang="uk">
@@ -39,6 +40,7 @@
         </div>
         <!-- User's toolbar-->
         <div class="col-sm-2 text-end my-auto" id="user-toolbar">
+            <a href="{% provider_login_url 'facebook' method="oauth2" next=request.path %}" >{% trans 'via Facebook' %}</a>
             <a href="{% url 'profile' %}">{{ user.get_full_name|default:user.username }}</a> |
             <a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
         </div>
