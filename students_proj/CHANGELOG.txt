@@ -1,0 +1,7 @@
+# **1.0.0 - Version of Students accounting app**
+This app have Modules:
+* Students
+* Groups
+* Journal
+* Contact Admin
+

@@ -11,21 +11,21 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
-from .db import DATABASES as db
+from .env_settings import SECRET_KEY, DEBUG
+from .env_settings import SOCIALACCOUNT_PROVIDERS
+from .env_settings import BASE_DIR, DATABASES
+from .env_settings import STATIC_URL, MEDIA_URL, MEDIA_ROOT
+from .env_settings import STATIC_URL, MEDIA_URL, MEDIA_ROOT
+from .env_settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_USE_TLS
+from .env_settings import PORTAL_URL
+try:
+    from .env_settings import STATIC_ROOT
+except ImportError:
+    pass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)d25%ehh^03n9$(qcq3gp$c$i27o0@k2%f#61v401f^c@mwa66'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['192.168.1.107']
 
 # Application definition
 
@@ -46,15 +46,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
 
 ]
-
-SOCIALACCOUNT_PROVIDERS = {
-    'facebook': {
-        'APP': {
-            'client_id': '4412270865460649',
-            'secret': 'e2514b1cae74f08a90fa52bddbb33e0d',
-        }
-    }
-}
 
 MIDDLEWARE = [
     'students_proj.middleware.RequestTimeMiddleware',
@@ -90,11 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'students_proj.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = db
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -126,29 +112,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-PORTAL_URL = 'http://localhost:8000'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-ADMIN_EMAIL = 'oleksandrboliukh@gmail.com'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'oleksandrboliukh@gmail.com'
-EMAIL_HOST_PASSWORD = '%0504Cfyz'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
